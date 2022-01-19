@@ -40,7 +40,7 @@ module.exports = class API {
         if (req.file) {
             new_image = req.file.filename;
             try {
-                fs.unlinkSync('./upload' + req.body.old_image);
+                fs.unlinkSync('./uploads/' + req.body.old_image);
             } catch (err) {
                 console.log(err);
             }
