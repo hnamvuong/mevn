@@ -1,8 +1,11 @@
 <template>
   <v-container>
+    <v-alert border="left" close-text="Close Alert" color="green accent-4" dark dismissible v-if="$route.params.message">
+      {{ $route.params.message }}
+    </v-alert>
     <v-row>
       <v-col sm="4" class="pa-3" v-for="post in posts" :key="post._id">
-        <v-card>
+        <v-card :to="{name: 'Post', params: {id: post._id}}">
           <v-img height="250" :src="`${post.image}`"></v-img>
           <v-btn class="ml-4 mt-3" small outlined color="indigo">
             {{ post.category }}
